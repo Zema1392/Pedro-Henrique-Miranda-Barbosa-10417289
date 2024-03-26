@@ -1,0 +1,127 @@
+8) #include <stdio.h>
+
+
+void interseccao(int vetorA[], int tamanhoA, int vetorB[], int tamanhoB) {
+    int i, j;
+    printf("Interseccao: { ");
+    for (i = 0; i < tamanhoA; i++) {
+        for (j = 0; j < tamanhoB; j++) {
+            if (vetorA[i] == vetorB[j]) {
+                printf("%d ", vetorA[i]);
+                break;
+            }
+        }
+    }
+    printf("}\n");
+}
+
+int main() {
+   
+    int A[] = {7, 2, 5, 8, 4};
+    int tamanhoA = sizeof(A) / sizeof(A[0]);
+    int B[] = {4, 2, 9, 5};
+    int tamanhoB = sizeof(B) / sizeof(B[0]);
+
+    interseccao(A, tamanhoA, B, tamanhoB);
+
+    int C[] = {3, 9, 11};
+    int tamanhoC = sizeof(C) / sizeof(C[0]);
+    int D[] = {2, 6, 1};
+    int tamanhoD = sizeof(D) / sizeof(D[0]);
+
+    interseccao(C, tamanhoC, D, tamanhoD);
+
+    return 0;
+}
+9)#include <stdio.h>
+#include <stdbool.h>
+
+
+void diferenca(int vetorA[], int tamanhoA, int vetorB[], int tamanhoB) {
+    int i, j;
+    bool eElementoComum;
+
+    printf("A - B = { ");
+    for (i = 0; i < tamanhoA; i++) {
+        eElementoComum = false;
+        for (j = 0; j < tamanhoB; j++) {
+            if (vetorA[i] == vetorB[j]) {
+                eElementoComum = true;
+                break;
+            }
+        }
+        if (!eElementoComum) {
+            printf("%d ", vetorA[i]);
+        }
+    }
+    printf("}\n");
+}
+
+int main() {
+    
+    int A[] = {7, 2, 5, 8, 4};
+    int tamanhoA = sizeof(A) / sizeof(A[0]);
+    int B[] = {4, 2, 9, 5};
+    int tamanhoB = sizeof(B) / sizeof(B[0]);
+
+    diferenca(A, tamanhoA, B, tamanhoB);
+
+    int C[] = {3, 9, 11};
+    int tamanhoC = sizeof(C) / sizeof(C[0]);
+    int D[] = {2, 6, 1};
+    int tamanhoD = sizeof(D) / sizeof(D[0]);
+
+    diferenca(C, tamanhoC, D, tamanhoD);
+
+    return 0;
+}
+10)#include <stdio.h>
+#include <stdbool.h>
+
+
+bool contem(int elemento, int vetor[], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        if (vetor[i] == elemento) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+void uniao(int vetorA[], int tamanhoA, int vetorB[], int tamanhoB) {
+    int i;
+
+    
+    printf("A U B = { ");
+    for (i = 0; i < tamanhoA; i++) {
+        printf("%d ", vetorA[i]);
+    }
+
+   
+    for (i = 0; i < tamanhoB; i++) {
+        if (!contem(vetorB[i], vetorA, tamanhoA)) {
+            printf("%d ", vetorB[i]);
+        }
+    }
+    printf("}\n");
+}
+
+int main() {
+    
+    int A[] = {7, 2, 5, 8, 4};
+    int tamanhoA = sizeof(A) / sizeof(A[0]);
+    int B[] = {4, 2, 9, 5};
+    int tamanhoB = sizeof(B) / sizeof(B[0]);
+
+    uniao(A, tamanhoA, B, tamanhoB);
+
+    int C[] = {3, 9, 11};
+    int tamanhoC = sizeof(C) / sizeof(C[0]);
+    int D[] = {2, 6, 1};
+    int tamanhoD = sizeof(D) / sizeof(D[0]);
+
+    uniao(C, tamanhoC, D, tamanhoD);
+
+    return 0;
+}
